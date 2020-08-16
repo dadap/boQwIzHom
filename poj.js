@@ -7,6 +7,7 @@ function chuzpuz(DaqDaH) {
             muz.value = QIn.wIvluz;
         });
 
+        browser.tabs.executeScript(Daq, {file: "browser-polyfill.js"});
         browser.tabs.executeScript(Daq, {file: "nawz.js"});
     }
 }
