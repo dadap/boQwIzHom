@@ -7,7 +7,14 @@ bItlhmoHwIz_zayzmey = $(addprefix webextension-polyfill/, \
 
 Hoch: $(zayzmey_jombeHbogh) $(bItlhmoHwIz)
 
-.PHONY: Hoch
+yISayzmoH:
+	git clean -Xfd
+	$(RM) webextension-polyfill/package-lock.json
+
+yISayzmoHchuz:
+	git submodule foreach --recursive git clean -Xfd
+
+.PHONY: Hoch yISayzmoH yISayzmoH
 
 jombeH/%: % jombeH/
 	cp $< $@
