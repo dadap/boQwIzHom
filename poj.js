@@ -5,6 +5,7 @@ function chuzpuz(DaqDaH) {
         browser.runtime.onMessage.addListener(function(QIn) {
             var muz = document.getElementById("muz");
             muz.value = QIn.wIvluz;
+            poj(muz.value);
         });
 
         browser.tabs.executeScript(Daq, {file: "browser-polyfill.js"});
@@ -22,4 +23,37 @@ window.addEventListener("DOMContentLoaded", function() {
         active: true
     });
     chuzlIz.then(chuzpuz, Seng);
+});
+
+function poj(muz) {
+    var tetlh = document.getElementById("poj");
+    tetlh.textContent = "";
+
+    if (!muz) {
+        return;
+    }
+
+    var Sam = Object.keys(q.qawHaq).filter(function(nej) {
+        return nej.includes(muz);
+    });
+
+    Sam.forEach(function(Dez){
+        var zaploz = document.createElement("li");
+        zaploz.className = "muz_zaploz";
+        var muz = document.createElement("span");
+        muz.className = "muz";
+        var jIyweS = document.createElement("span");
+        jIyweS.className = "jIyweS";
+
+        muz.innerHTML = q.qawHaq[Dez].entry_name;
+        jIyweS.innerHTML = q.qawHaq[Dez].definition["en"];
+        zaploz.appendChild(muz);
+        zaploz.appendChild(jIyweS);
+        tetlh.appendChild(zaploz);
+    });
+}
+
+var muz = document.getElementById("muz");
+muz.addEventListener("input", function() {
+    poj(muz.value);
 });
