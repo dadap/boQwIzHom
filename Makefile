@@ -1,4 +1,4 @@
-zayzmey = manifest.json poj.html poj.js nawz.js
+zayzmey = manifest.json poj.html poj.js nawz.js poj.css
 zayzmey_jombeHbogh = $(addprefix jombeH/,$(zayzmey))
 
 bItlhmoHwIz = jombeH/browser-polyfill.js
