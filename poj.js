@@ -5,7 +5,7 @@ function chuzpuz(DaqDaH) {
         browser.runtime.onMessage.addListener(function(QIn) {
             var muz = document.getElementById("muz");
             muz.value = QIn.wIvluz;
-            poj(muz.value);
+            poj(muz.value, true);
         });
 
         browser.tabs.executeScript(Daq, {file: "browser-polyfill.js"});
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", function() {
     chuzlIz.then(chuzpuz, Seng);
 });
 
-function poj(muz) {
+function poj(muz, pup) {
     var tetlh = document.getElementById("poj");
     tetlh.textContent = "";
 
@@ -34,7 +34,11 @@ function poj(muz) {
     }
 
     var Sam = Object.keys(q.qawHaq).filter(function(nej) {
-        return nej.includes(muz);
+        if (pup) {
+            return q.qawHaq[nej].entry_name == muz;
+        } else {
+            return nej.includes(muz);
+        }
     });
 
     Sam.forEach(function(Dez){
@@ -55,5 +59,5 @@ function poj(muz) {
 
 var muz = document.getElementById("muz");
 muz.addEventListener("input", function() {
-    poj(muz.value);
+    poj(muz.value, false);
 });
